@@ -80,12 +80,12 @@ function GameServer() {
         clientBind: '', // Only allow connections to the server from specified client (eg: http://agar.io - http://mywebsite.com - http://more.com) [Use ' - ' to seperate different websites]
 
         /** ANTI-BOT **/
-        serverIpLimit: 4, // Controls the maximum number of connections from the same IP (0 for no limit)
+        serverIpLimit: 0, // Controls the maximum number of connections from the same IP (0 for no limit)
         serverMinionIgnoreTime: 30, // minion detection disable time on server startup [seconds]
         serverMinionThreshold: 10, // max connections within serverMinionInterval time period, which l not be marked as minion
         serverMinionInterval: 1000, // minion detection interval [milliseconds]
         serverScrambleLevel: 1, // Toggles scrambling of coordinates. 0 = No scrambling, 1 = lightweight scrambling. 2 = full scrambling (also known as scramble minimap); 3 - high scrambling (no border)
-        playerBotGrow: 0, // Cells greater than 625 mass cannot grow from cells under 17 mass (set to 1 to disable)
+        playerBotGrow: 1, // Cells greater than 625 mass cannot grow from cells under 17 mass (set to 1 to disable)
 
         /** BORDER **/
         borderWidth: 14142.135623730952, // Map border size (Vanilla value: 14142)
@@ -112,7 +112,7 @@ function GameServer() {
         /** EJECTED MASS **/
         ejectSize: 36.06, // vanilla: mass = val*val/100 = 13 mass?
         ejectSizeLoss: 42.43, // Eject size which will be substracted from player cell (vanilla: mass = val*val/100 = 18 mass?)
-        ejectCooldown: 3, // Tick count until a player can eject mass again in ticks (1 tick = 40 ms)
+        ejectCooldown: 0, // Tick count until a player can eject mass again in ticks (1 tick = 40 ms)
         ejectSpawnPercent: 0.5, // Chance for a player to spawn from ejected mass. 0.5 = 50% (set to 0 to disable)
         ejectVirus: 0, // Whether or not players can eject viruses instead of mass
         ejectVelocity: 780, // Velocity of ejecting cells (speed and distance)
@@ -125,7 +125,7 @@ function GameServer() {
         playerStartSize: 31.6227766017, // Start size of the player cell. (vanilla: mass = val*val/100 = 10 mass)
         playerMaxCells: 16, // Maximum cells a player is allowed to have.
         playerSpeed: 1, // Player speed multiplier (1 = normal speed, 2 = twice the normal speed)
-        playerDecayRate: 0.998, // Amount of player cell size lost per second
+        playerDecayRate: 0.003, // Amount of player cell size lost per second
         playerDecayCap: 0, // Maximum mass a cell can have before it's decayrate multiplies by 10. (0 to disable)
         playerRecombineTime: 30, // Base time in seconds before a cell is allowed to recombine
         playerDisconnectTime: -1, // Time in seconds before a disconnected player's cell is removed (Set to -1 to never remove)
