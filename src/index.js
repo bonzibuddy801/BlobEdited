@@ -114,7 +114,7 @@ function setParam(paramName, val){
 
 
 gameServer.start();
-figlet(('MultiOgar-Edited  ' + gameServer.version), function(err, data) {
+figlet(('Sub to Valdex Blob', function(err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
