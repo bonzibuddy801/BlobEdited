@@ -1,4 +1,4 @@
-# MultiOgar-Edited
+# MultiOgar-Edited for Blob io
 
 A fast, open source server that supports multiple protocol versions and smooth vanilla physics.
 
