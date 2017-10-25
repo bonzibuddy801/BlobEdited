@@ -21,7 +21,7 @@ Please see the issue template before you make an issue, you can find it [here](h
 
 
 #### Android:
-'''
+```
 # *Install 'Termux' from GooglePlay
 # Clone BlobEdited:
 git clone git://github.com/Valdex/BlobEdited.git
