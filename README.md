@@ -41,7 +41,7 @@ cd src
 node index.js
 ```
 
-##### Running
+##### Running next 
 ```
 cd BlobEdited/src
 node index.js
