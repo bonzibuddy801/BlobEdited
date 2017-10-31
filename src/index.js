@@ -114,7 +114,7 @@ function setParam(paramName, val){
 
 
 gameServer.start();
-figlet(('Sub to Valdex Blob', function(err, data) {
+figlet(('MultiOgar-Edited  ' + gameServer.version), function(err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
@@ -168,4 +168,6 @@ function parseCommands(str) {
     } else {
         Logger.warn("Invalid Command!");
     }
-}
+};
+
+exports.gameServer = gameServer;
