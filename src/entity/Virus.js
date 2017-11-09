@@ -8,7 +8,7 @@ function Virus() {
     this.color = {
         r: 0x33,
         g: 0xff,
-        b: 0x33
+        b: 0x40
     };
 }
 
@@ -46,6 +46,8 @@ Virus.prototype.onEaten = function (c) {
     else if (cellsLeft == 2) big = [c._mass / 4, c._mass / 4];
     else if (cellsLeft == 3) big = [c._mass / 4, c._mass / 4, c._mass / 7];
     else if (cellsLeft == 4) big = [c._mass / 5, c._mass / 7, c._mass / 8, c._mass / 10];
+    else if (cellsLeft == 5) big = [c._mass / 2, c._mass / 7, c._mass / 8, c._mass / 10, c._mass / 2];
+    else if (cellsLeft == 6) big = [c._mass / 12];
     // Monotone explosion(s)
     else if (c._size > 216) {
         // virus explosion multipliers
