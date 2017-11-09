@@ -3,7 +3,7 @@
         "ip":"", 
         "password":"ADMIN",
         "role":"ADMIN",
-        "name":"Local Administrator" 
+        "name":"Катана привет" 
     },
     { 
         "ip":"127.0.0.1", 
