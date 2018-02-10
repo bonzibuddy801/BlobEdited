@@ -69,7 +69,7 @@ sudo node index.js
 ```bash
 # Installing server
 apt-get update && apt-get install nodejs-legacy npm git && git clone git://github.com/Megabyte918/MultiOgar-Edited.git && cd MultiOgar-Edited && npm install && cd src && node index.js
-
+```
 # Next time to start server write 
 cd MultiOgar-Edited/src && node index.js
 
