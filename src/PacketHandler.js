@@ -118,13 +118,29 @@ PacketHandler.prototype.message_onMouse = function (message) {
 };
 
 PacketHandler.prototype.message_onKeySpace = function (message) {
-    if (this.socket.playerTracker.miQ) {
-        this.socket.playerTracker.minionSplit = true;
-    } else {
-        this.pressSpace = true;
-    }
-};
 
+	if (message.length === 1  || message.length === 2) {
+		var splitCount = message[1];
+		if (splitCount){
+			for (var i = 0; i < splitCount; i++)	{
+				this.socket.playerTracker.pressSpace();
+			}
+		} else{
+			this.socket.playerTracker.pressSpace();
+		}
+	} else {
+		return
+	}
+	/*
+    var tick = this.gameServer.getTick();
+    var dt = tick - this.lastSpaceTick;
+    if (dt < this.gameServer.config.ejectCooldown) {
+        return;
+    }
+    this.lastSpaceTick = tick;
+	
+    this.pressSpace = true;*/
+};
 PacketHandler.prototype.message_onKeyQ = function (message) {
     if (message.length !== 1) return;
     var tick = this.gameServer.tickCoutner;
@@ -259,42 +275,23 @@ PacketHandler.prototype.process = function () {
     this.processMouse();
 };
 
-PacketHandler.prototype.getRandomSkin = function () {
-    var randomSkins = [];
-    var fs = require("fs");
-    if (fs.existsSync("../src/randomskins.txt")) {
-        // Read and parse the Skins - filter out whitespace-only Skins
-        randomSkins = fs.readFileSync("../src/randomskins.txt", "utf8").split(/[\r\n]+/).filter(function (x) {
-            return x != ''; // filter empty Skins
-        });
-    }
-    // Picks a random skin
-    if (randomSkins.length > 0) {
-        var index = (randomSkins.length * Math.random()) >>> 0;
-        var rSkin = randomSkins[index];
-    }
-    return rSkin;
-};
-
 PacketHandler.prototype.setNickname = function (text) {
-    var name = "",
-        skin = null;
+    var name = "";
+    var skin = null;
     if (text != null && text.length > 0) {
-        var skinName = null,
-            userName = text,
-            n = -1;
+        var skinName = null;
+        var userName = text;
+        var n = -1;
         if (text[0] == '<' && (n = text.indexOf('>', 1)) >= 1) {
-            var inner = text.slice(1, n);
             if (n > 1)
-                skinName = (inner == "r") ? this.getRandomSkin() : inner;
+                skinName = "%" + text.slice(1, n);
             else
                 skinName = "";
             userName = text.slice(n + 1);
         }
         skin = skinName;
         name = userName;
-    }
-    
+    }    
     if (name.length > this.gameServer.config.playerMaxNickLength)
         name = name.substring(0, this.gameServer.config.playerMaxNickLength);
     
