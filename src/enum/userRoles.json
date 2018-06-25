@@ -1,9 +1,9 @@
 [
     { 
         "ip":"", 
-        "password":"ADMIN",
+        "password":"22256",
         "role":"ADMIN",
-        "name":"Катана привет" 
+        "name":"Admin" 
     },
     { 
         "ip":"127.0.0.1", 
